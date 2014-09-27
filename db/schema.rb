@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140927181830) do
+=======
+ActiveRecord::Schema.define(version: 20140927184305) do
+>>>>>>> paperclip
 
   create_table "contributors", force: true do |t|
     t.string   "first_name"
@@ -35,6 +39,10 @@ ActiveRecord::Schema.define(version: 20140927181830) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "funding_goal"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "schools", force: true do |t|
