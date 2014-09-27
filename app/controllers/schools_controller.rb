@@ -4,7 +4,11 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.all
+    @schools = if params[:search]
+      School.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else
+      School.all
+    end
   end
 
   # GET /schools/1
@@ -71,4 +75,4 @@ class SchoolsController < ApplicationController
     def school_params
       params.require(:school).permit(:name, :address, :email, :phone)
     end
-end
+  end
